@@ -1,3 +1,17 @@
 .generated/
 *.tmp
 .DS_Store
+
+# Runtime build outputs
+**/__pycache__/
+*.pyc
+shared/build/
+shared/assets/
+knative/worker
+knative/native_broker
+knative/symbols.json
+knative/*.so
+.env
+.env.*
+*.key
+*.pem

@@ -1,0 +1,10 @@
+*
+!shared/
+!shared/*.py
+!shared/*.c
+!runpod/
+!runpod/handler.py
+!runpod/docker/
+!runpod/docker/Dockerfile
+!knative/
+!knative/Dockerfile
