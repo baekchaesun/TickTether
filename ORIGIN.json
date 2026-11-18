@@ -1,0 +1,34 @@
+{
+  "method": "TickTether",
+  "origin_source_sha256": {
+    "audit.py": "fec316d6d43fcdcec93c1b405178c377d5cba90e80102decc4b18a9083da7874",
+    "bytecode.py": "b37e3e8de4a1ad228a4d77af51fedb8c7a34be51e17cdcc59f87a958cece3d39",
+    "certificate.py": "a2d6d48432013c9a0233cc39468afcaffe8ee00df76d983e11fb9d253696c509",
+    "creation.py": "75f192b7b2b2f4a25b2c7f9fce02175f6795a0c2a5a9230039d4a8dc13b44075",
+    "destinations.py": "2fc79c2d6aab7c128caca560ebc4c3a9614f5fc70e3ab5b52081a6fb43fed6ad",
+    "effects.py": "fa2e6830217d074ab5a9422493334786c7bb4375567fbd3f56fd5a43a7ab487a",
+    "frame_access.py": "4674358e760cc0631f4dc2fdb79360d3f37c28fe77d76e746d0672646f0b6299",
+    "heap_invariant.py": "a946e5b25a47c59ac93cfd355890f0a4c920413823bab639ef7e7f09a8102c19",
+    "input_fingerprint.py": "6034cbfe6d9e7b68c35572831ac67e4e1553592521f34d0ee4ee64ef969267ca",
+    "monitor.py": "a49a9352a3df9aa0d6f5e649bd98c67d65d6eb105b4f5620584860b57bab8183",
+    "native_state.py": "6564dd59b8914d901c991cd19c812ef16542d35e584019dd74c6da574fed33fd",
+    "native_store.py": "8b70f942d73b9975e5cc321196a17d5f86954c9274bbfb1c0f6c6a10e9ed1f54",
+    "native_trace.py": "d6fafa86a9805bb972b5b64e48001f2b0d2edc06ffe6c26e20dd11acf9812107",
+    "readplan.py": "5fa56738cc0abf7f6d2ec50df55961d29df0c90aa7fe55d7b8514b14a2e8ebcb",
+    "retirement.py": "1a54565ebfde6cb8a3aa3834e2c22393506e48001bec47f1fe6e340e846c0a9b",
+    "trial.py": "2596a2b679d5d85c760000865aec796f1dfdbf8c975caa57476fbb15fb68692a",
+    "value_decode.py": "51fb869aea0217b78052e7483b40bcf31abf4358d07290c93b95608de07da878",
+    "worker.py": "eec033a0afb91276d3b82d49b2bd4ad3ed9af62b5aa9aff219e97226441fd83d",
+    "scenarios/normal.sh": "6027663836f8253d2bdfd9bf611675cd50f65da826d095994e6bdb455966642d",
+    "scenarios/abnormal_1.sh": "faa8e3567aae90532e343435e1fd38088b486998eccc6e35601e76649d178546",
+    "scenarios/abnormal_2.sh": "f079c792eee06ad4aeeb7620fb109f36956ea14fcf21258e89bbc57136e26ad4",
+    "scenarios/abnormal_3.sh": "222ffe8fd4a6e1bd2b8941b23a0b59214afae79d6b9dd0513c621704aa0875a7"
+  },
+  "purpose": "Category 1 integration; separate release and results",
+  "changes": [
+    "TickTether naming",
+    "live-frame process creation gate",
+    "original Category 1 scripts with fixture transport",
+    "separate source and results manifest"
+  ]
+}

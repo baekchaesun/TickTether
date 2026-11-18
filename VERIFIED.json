@@ -1,0 +1,57 @@
+{
+  "version": "TickTether-C1-v1",
+  "trials": 8,
+  "counts": {
+    "TN": 1,
+    "TP": 3
+  },
+  "all_audits_passed": true,
+  "dispatch_prefixes_checked": 82,
+  "code_certificates_checked": 16,
+  "normal_reference_executions": 0,
+  "prior_results_pooled": false,
+  "scope": "four Category 1 fixture replays; process origin extension; no population accuracy estimate",
+  "pairs": [
+    {
+      "scenario": "normal",
+      "same_initial_request": true,
+      "verdict": "TN"
+    },
+    {
+      "scenario": "abnormal_1",
+      "same_initial_request": true,
+      "verdict": "TP"
+    },
+    {
+      "scenario": "abnormal_2",
+      "same_initial_request": true,
+      "verdict": "TP"
+    },
+    {
+      "scenario": "abnormal_3",
+      "same_initial_request": true,
+      "verdict": "TP"
+    }
+  ],
+  "raw_summary_sha256": "bf729edafe70ea18104533a4b9de18e61f169a7e43fa36b9eb8842b3ef261b15",
+  "native_coverage_gaps": {
+    "00-abnormal_1-control": {
+      "unsupported_heap_effect_frontier": 1
+    },
+    "00-abnormal_1-protected": {},
+    "00-abnormal_2-control": {
+      "unsupported_heap_effect_frontier": 1
+    },
+    "00-abnormal_2-protected": {},
+    "00-abnormal_3-control": {
+      "unsupported_heap_effect_frontier": 1
+    },
+    "00-abnormal_3-protected": {},
+    "00-normal-control": {
+      "unsupported_heap_effect_frontier": 1
+    },
+    "00-normal-protected": {
+      "unsupported_heap_effect_frontier": 1
+    }
+  }
+}

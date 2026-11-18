@@ -1,0 +1,51 @@
+#!/usr/bin/python3
+"""Local transport for the four unchanged Category 1 scenario scripts."""
+import json
+import os
+from pathlib import Path
+import sys
+
+
+def main():
+    args = sys.argv[1:]
+    if args[:1] == ['-n']:
+        args = args[2:]
+    if args[:2] == ['get', 'pod']:
+        selector = args[args.index('-l') + 1]
+        if selector not in ('app=frontend', 'app=backend'):
+            raise ValueError('Unexpected local fixture selector')
+        print(selector.split('=')[1] + '-fixture', end='')
+        return
+    if args[:1] != ['exec'] or '--' not in args:
+        raise ValueError('Only the Category 1 get/exec transport is supported')
+    command = args[args.index('--') + 1:]
+    if command[:2] != ['sh', '-c'] or len(command) != 3:
+        raise ValueError('Unexpected Category 1 command shape')
+    root = Path(os.environ['TT_FIXTURE']).resolve()
+    mapping = {
+        '/var/run/secrets/kubernetes.io/serviceaccount/token': root / 'secrets/token',
+        '/root/.aws/credentials': root / 'root/.aws/credentials',
+        '/root/.ssh/id_rsa': root / 'root/.ssh/id_rsa',
+        '/root/.kube/config': root / 'root/.kube/config',
+        '/proc/1/environ': root / 'proc/environ',
+        '/etc/shadow': root / 'etc/shadow',
+        '/etc/hostname': root / 'etc/hostname',
+        '/www/index.html': root / 'www/index.html',
+        '/tmp/openmetadata-': root / 'tmp/openmetadata-',
+    }
+    text = command[2]
+    for original, replacement in mapping.items():
+        text = text.replace(original, str(replacement))
+    text = text.replace('http://127.0.0.1/', os.environ['TT_HEALTH_URL'])
+    remaining = text
+    for replacement in mapping.values():
+        remaining = remaining.replace(str(replacement), '')
+    if any(original in remaining for original in mapping):
+        raise ValueError('Unprojected Category 1 fixture path')
+    with (Path(os.environ['TT_TRACES']) / 'transport.jsonl').open('a') as stream:
+        stream.write(json.dumps({'transport': 'local-fixture', 'command': text}) + '\n')
+    os.execv('/bin/sh', ['sh', '-c', text])
+
+
+if __name__ == '__main__':
+    main()
